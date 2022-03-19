@@ -8,9 +8,10 @@ function Calcular(){
     let m = alelos[b].split('');
     let comb1 = combinar(p);
     let comb2 = combinar(m);
-    Genotipos(matrizPunnett(comb1,comb2));
+    let punnett = matrizPunnett(comb1,comb2);
+    Genotipos(punnett);
     for (let i = 0; i < 5; i++)
-        console.log(colores[i] + ": " + prom(c[i]) + "%");
+        console.log(colores[i] + ": " + prom(c[i], punnett.length) + "%");
     c = [0,0,0,0,0];
 }
 let combinar = function(array){
@@ -60,4 +61,4 @@ function Color(sum){
             break;
     }
 }
-function prom(x){   return (x*10)/1.6;  }
+function prom(x, y){   return (x*100)/y;  }
