@@ -1,34 +1,19 @@
 let elemento = document.getElementById("micanvas");
 let ctx = elemento.getContext('2d');
-
+ctx.font = "15px Arial";
 /*
 ctx.strokeText('Hola',70,75);
-ctx.strokeRect(50,50,100,100);
-ctx.strokeRect(50,100,100,100);
-ctx.strokeRect(50,150,100,100);
-ctx.strokeRect(50,200,100,100);
-
-ctx.strokeRect(100,50,100,100);
-ctx.strokeRect(100,100,100,100);
-ctx.strokeRect(100,150,100,100);
-ctx.strokeRect(100,200,100,100);
-
-ctx.strokeRect(150,50,100,100);
-ctx.strokeRect(150,100,100,100);
-ctx.strokeRect(150,150,100,100);
-ctx.strokeRect(150,200,100,100);
-
-ctx.strokeRect(200,50,100,100);
-ctx.strokeRect(200,100,100,100);
-ctx.strokeRect(200,150,100,100);
-ctx.strokeRect(200,200,100,100);*/
+*/
 
 let c = [0,0,0,0,0];
 
-const tam = 120;
-for (let x = 50; x < 600; x+=tam) {
-    for (let y = 50; y < 600; y+=tam) {
+const tam = 100;
+const dimMatr = tam*4;
+//empieza en 48
+for (let x = 50; x < dimMatr; x+=tam) {
+    for (let y = 50; y < dimMatr; y+=tam) {
         ctx.strokeRect(x,y,tam,tam);
+        ctx.fillText('AABB',x+35,y+53)
     }
 }
 function Calcular(){
