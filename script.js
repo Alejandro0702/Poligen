@@ -1,4 +1,36 @@
+let elemento = document.getElementById("micanvas");
+let ctx = elemento.getContext('2d');
+
+/*
+ctx.strokeText('Hola',70,75);
+ctx.strokeRect(50,50,100,100);
+ctx.strokeRect(50,100,100,100);
+ctx.strokeRect(50,150,100,100);
+ctx.strokeRect(50,200,100,100);
+
+ctx.strokeRect(100,50,100,100);
+ctx.strokeRect(100,100,100,100);
+ctx.strokeRect(100,150,100,100);
+ctx.strokeRect(100,200,100,100);
+
+ctx.strokeRect(150,50,100,100);
+ctx.strokeRect(150,100,100,100);
+ctx.strokeRect(150,150,100,100);
+ctx.strokeRect(150,200,100,100);
+
+ctx.strokeRect(200,50,100,100);
+ctx.strokeRect(200,100,100,100);
+ctx.strokeRect(200,150,100,100);
+ctx.strokeRect(200,200,100,100);*/
+
 let c = [0,0,0,0,0];
+
+const tam = 120;
+for (let x = 50; x < 600; x+=tam) {
+    for (let y = 50; y < 600; y+=tam) {
+        ctx.strokeRect(x,y,tam,tam);
+    }
+}
 function Calcular(){
     let colores = ["Azul", "Verde", "Miel", "Cafe", "Negro"];
     let alelos =["aabb","Aabb","AaBb","AABb","AABB"];
@@ -6,12 +38,14 @@ function Calcular(){
     let b = document.getElementById('madre').selectedIndex - 1;
     let p = alelos[a].split('');
     let m = alelos[b].split('');
-    let comb1 = combinar(p);
-    let comb2 = combinar(m);
-    let punnett = matrizPunnett(comb1,comb2);
+    let punnett = matrizPunnett(combinar(p),combinar(m));
     Genotipos(punnett);
-    for (let i = 0; i < 5; i++)
+    let res = "";
+    for (let i = 0; i < 5; i++){
         console.log(colores[i] + ": " + prom(c[i], punnett.length) + "%");
+        res = res + (colores[i] + ": " + prom(c[i], punnett.length) + "%\n");
+    }
+    document.getElementById('resultado').innerHTML = res;
     c = [0,0,0,0,0];
 }
 let combinar = function(array){
