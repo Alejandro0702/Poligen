@@ -24,9 +24,23 @@ function Calcular(){
         console.log(colores[i] + ": " + prom(c[i], punnett.length) + "%");
         res = res + (colores[i] + ": " + prom(c[i], punnett.length) + "%\n");
     }
+    dibujarTexto(punnett);
     document.getElementById('resultado').innerHTML = res;
     c = [0,0,0,0,0];
 }
+
+function dibujarTexto(p){
+    let i = 0;
+    for (let x = 50; x < dimMatr; x+=tam) {
+        for (let y = 50; y < dimMatr; y+=tam) {
+            //ctx.fillText(punnett[i],x+35,y+53);
+            ctx.fillText(p[i],x+35,y+53);
+        }
+        i++;
+    }
+    
+}
+
 let combinar = function(array){
     let t = [];
     for (let i = 0; i < array.length/2; i++)
