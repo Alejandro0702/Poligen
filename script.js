@@ -1,21 +1,15 @@
-let elemento = document.getElementById("micanvas");
-let ctx = elemento.getContext('2d');
-ctx.font = "15px Arial";
-/*
-ctx.strokeText('Hola',70,75);
-*/
-
 let c = [0,0,0,0,0];
-
-const tam = 100;
-const dimMatr = tam*4;
-//empieza en 48
+var elemento = document.getElementById("micanvas");
+var ctx = elemento.getContext('2d');
+let tam = 100;
+let dimMatr = tam*4;
 for (let x = 50; x < dimMatr; x+=tam) {
     for (let y = 50; y < dimMatr; y+=tam) {
         ctx.strokeRect(x,y,tam,tam);
-        ctx.fillText('AABB',x+35,y+53)
+        //ctx.fillText(punnett[i],x+35,y+53);
     }
 }
+
 function Calcular(){
     let colores = ["Azul", "Verde", "Miel", "Cafe", "Negro"];
     let alelos =["aabb","Aabb","AaBb","AABb","AABB"];
