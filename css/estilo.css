@@ -10,6 +10,6 @@
     height: 100%;
 }
 #resultado{
+    position: relative;
     float: right;
-    background-color: green;
 }

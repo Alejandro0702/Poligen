@@ -24,7 +24,7 @@ function Calcular(){
     let res = "";
     for (let i = 0; i < 5; i++){
         console.log(colores[i] + ": " + prom(c[i], punnett.length) + "%");
-        res = res + (colores[i] + ": " + prom(c[i], punnett.length) + "%\n");
+        res = res + (colores[i] + ": " + prom(c[i], punnett.length) + "%<br>");
     }
     dibujarTexto(punnett);
     document.getElementById('resultado').innerHTML = res;
@@ -32,14 +32,18 @@ function Calcular(){
 }
 
 function dibujarTexto(p){
-    
     ctx.font = '15px Arial';
-    let i = 0;
-    for (let x = 50; x < dimMatr; x+=tam) {
-        for (let y = 50; y < dimMatr; y+=tam) {
-                ctx.fillText(p[i],x+35,y+53);
+    let img_base = new Image();
+    img_base.src = 'assets/img/eye.png';
+    img_base.onload = function(){
+        let i = 0;
+        for (let x = 50; x < dimMatr; x+=tam){
+            for (let y = 50; y < dimMatr; y+=tam){
+                ctx.fillText(p[i],x+35,y+93);
+                ctx.drawImage(img_base, x, y, tam, tam);
+            }
+            i++;
         }
-        i++;
     }
 }
 
