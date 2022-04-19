@@ -1,14 +1,5 @@
 let c = [0,0,0,0,0];
-var elemento = document.getElementById("micanvas");
-var ctx = elemento.getContext('2d');
-let tam = 100;
-let dimMatr = tam*4;
-for (let x = 50; x < dimMatr; x+=tam) {
-    for (let y = 50; y < dimMatr; y+=tam) {
-        ctx.strokeRect(x,y,tam,tam);
-    }
-}
-let imageData = ctx.getImageData(0,0,elemento.width,elemento.height);
+let g = new Array();
 
 function Calcular(){
     elemento.style.display = 'block';
@@ -30,26 +21,6 @@ function Calcular(){
     document.getElementById('resultado').innerHTML = res;
     c = [0,0,0,0,0];
 }
-
-function dibujarTexto(p){
-    ctx.font = '15px Arial';
-    let img_base = new Image();
-    img_base.src = 'assets/img/eye.png';
-    img_base.onload = function(){
-        let i = 0;
-        for (let x = 50; x < dimMatr; x+=tam){
-            for (let y = 50; y < dimMatr; y+=tam){
-                ctx.fillText(p[i],x+35,y+93);
-                ctx.drawImage(img_base, x, y, tam, tam);
-            }
-            i++;
-        }
-    }
-}
-
-
-
-
 
 let combinar = function(array){
     let t = [];
@@ -76,26 +47,81 @@ function Genotipos(grupos){
         for (let i = 0; i < 4; i++)
             if(Alelos[i] == "A" || Alelos[i] == "B")
                 sum += 1;   
-        Color(sum);
+        //Aqui se define el tipo de color de la posicion
+        Color(sum, j);
     }
 }
-function Color(sum){
+function Color(sum, j){
     switch (sum) {
-        case 0:
+        case 0:// 0 alelos dominantes   Azul
             c[0]++;
+            g[j] = 0;
             break;
-        case 1:
+        case 1:// 1 alelos dominantes   Verde
             c[1]++;
+            g[j] = 1;
             break;
-        case 2:
+        case 2:// 2 alelos dominantes   Miel
             c[2]++;
+            g[j] = 2;
             break;
-        case 3:
+        case 3:// 3 alelos dominantes   Cafe claro
             c[3]++;
+            g[j] = 3;
             break;
-        case 4:
+        case 4:// 4 alelos dominantes   Cafe oscuro/negro
             c[4]++;
+            g[j] = 4;
             break;
     }
 }
 function prom(x, y){   return (x*100)/y;  }
+
+//canvas
+var elemento = document.getElementById("micanvas");
+var ctx = elemento.getContext('2d');
+let tam = 100;
+let dimMatr = tam*4;
+for (let x = 50; x < dimMatr; x+=tam) {
+    for (let y = 50; y < dimMatr; y+=tam) {
+        ctx.strokeRect(x,y,tam,tam);
+    }
+}
+let imageData = ctx.getImageData(0,0,elemento.width,elemento.height);//Almacena el canva inicial
+function dibujarTexto(p){
+    ctx.font = '15px Arial';
+    let i = 0;
+    for (let x = 50; x < dimMatr; x+=tam){
+        for (let y = 50; y < dimMatr; y+=tam){
+            ctx.fillText(p[i],x+35,y+93);
+            dibujarOjos(i, x, y);
+            i++;
+        }
+    }
+}
+
+function dibujarOjos(i, x, y){
+    let img_base = new Image();
+    switch (g[i]) {
+        case 0://Azul
+            img_base.src = 'assets/img/OjoAzul.png';
+        break;
+        case 1://Verde
+            img_base.src = 'assets/img/OjoVerde.png';
+            break;
+        case 2://Miel
+            img_base.src = 'assets/img/OjoMiel.png';
+            break;
+        case 3://Cafe
+            img_base.src = 'assets/img/OjoCafe.png';
+            break;
+        case 4://Cafe oscuro/negro
+            img_base.src = 'assets/img/OjoNegro.png';
+            break;
+    }
+    img_base.onload = function(){
+        ctx.drawImage(img_base, x, y, tam, tam);
+    }
+}
+
+//canvas
