@@ -6,11 +6,13 @@ let dimMatr = tam*4;
 for (let x = 50; x < dimMatr; x+=tam) {
     for (let y = 50; y < dimMatr; y+=tam) {
         ctx.strokeRect(x,y,tam,tam);
-        //ctx.fillText(punnett[i],x+35,y+53);
     }
 }
+let imageData = ctx.getImageData(0,0,elemento.width,elemento.height);
 
 function Calcular(){
+    elemento.style.display = 'block';
+    ctx.putImageData(imageData, 0, 0);
     let colores = ["Azul", "Verde", "Miel", "Cafe", "Negro"];
     let alelos =["aabb","Aabb","AaBb","AABb","AABB"];
     let a = document.getElementById('padre').selectedIndex - 1;
@@ -30,16 +32,20 @@ function Calcular(){
 }
 
 function dibujarTexto(p){
+    
+    ctx.font = '15px Arial';
     let i = 0;
     for (let x = 50; x < dimMatr; x+=tam) {
         for (let y = 50; y < dimMatr; y+=tam) {
-            //ctx.fillText(punnett[i],x+35,y+53);
-            ctx.fillText(p[i],x+35,y+53);
+                ctx.fillText(p[i],x+35,y+53);
         }
         i++;
     }
-    
 }
+
+
+
+
 
 let combinar = function(array){
     let t = [];

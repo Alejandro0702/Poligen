@@ -1,1 +1,15 @@
-
+#micanvas {
+    display: none;
+    background-color: aqua;
+    position: relative;
+    width: 500;
+}
+#resultados {
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+}
+#resultado{
+    float: right;
+    background-color: green;
+}
