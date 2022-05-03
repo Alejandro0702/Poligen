@@ -15,7 +15,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/estilo.css" rel="stylesheet" />
-        <script src="script.js" defer></script>
+        <script src="js/script_F.js" defer></script>
     </head>
     <body id="page-top" >
         <!-- Navigation-->
@@ -28,9 +28,9 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Introducción</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Genotipos y Fenotipos</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Alelos, Genotipos y Fenotipos</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Matriz de Punnett</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Cruzas</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Herencia con alelos múltiples</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Ponlo en práctica</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Referencias</a></li>
                 </ul>
@@ -61,7 +61,6 @@
                     <h2 class="mb-5">Genotipos y Fenotipos</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         
-
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Genotipos</h3>
                             <div class="subheading mb-3">asdasdasdas</div>
@@ -95,7 +94,18 @@
                                     genotipo y su medio ambiente.</p>
                         </div>
                     </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Alelos</h3>
+                            <p>Un alelo es cada una de las dos o más versiones de un gen. Un individuo hereda dos alelos para cada gen, uno del padre y el otro de la madre. Los alelos se encuentran en la misma posición dentro de los cromosomas homólogos. Si los dos alelos son idénticos, el individuo es homocigoto para este gen. En cambio, si los alelos son diferentes, el individuo es heterocigoto para este gen.</p>
+                            <h3 class="mb-0">Alelos dominantes y recesivos</h3>
+                            <p>Un alelo dominante o recesivo se refiere a la relación entre dos versiones de un gen. Cada individuo recibe dos versiones de cada gen, conocidas como alelos, una de cada padre. Si los alelos de un gen son diferentes, el alelo que se expresa es el gen dominante (representado con letra mayúscula). El efecto del otro alelo, denominado recesivo (representado con letra minúscula), queda enmascarado.</p>
+                            <img class="img-fluid img-profile mx-auto" src="assets/img/Alelos-dominante recesivos.jpg" alt="..." />
+                        </div>
+                    </div>
                 </div>
+                
+            </div>
             </section>
             <hr class="m-0" />
             <!-- Education-->
@@ -107,52 +117,52 @@
                     </h2>
                     <p class="lead mb-5">La matríz o cuadro de Punnett es un diagrama diseñado por Reginald Punnett utilizado para predecir proporciones de genotipos y fenotipos de la descendencia en un cruzamiento independientemente del número de individuos de la descendencia que se obtenga.
                         <br>El cuadro de Punnett permite observar cada combinación posible, los alelos dominantes (representados con letra mayúscula) y recesivos (letra minúscula), que podrían producirse en el cruce.
-                        <br>En el siguiente ejemplo, la probabilidad de que el producto tenga el genotipo BB es de 25%, con Bb es de 50% y con bb de 25%.
                     </p>
-                    
-                    
+                    <p>En el siguiente ejemplo, la existencia de 1 o más alelos dominantes le corresponde al color morado, mientras que tener dos alelos recesivos le corresponde al color blanco. Al resolver el cuadro de Punnett, la probabilidad de que el producto tenga el genotipo BB es de 25%, con Bb es de 50% y con bb de 25%.</p>
                     <img class="img-fluid img-profile mx-auto mb-2" src="assets/img/cuadro-punnett.jpg" alt="..." />
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">Genotipo</th>
+                            <th scope="col">AA</th>
+                            <th scope="col">Aa</th>
+                            <th scope="col">aa</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">Probabilidad</td>
+                            <td>25%</td>
+                            <td>50%</td>
+                            <td>25%</td>
+                          </tr>
+                          <tr>
+                            <thead class="thead-dark">
+                                <tr>
+                                    
+                                </tr>
+                              </thead>
+                            <th scope="row">Fenotipo</th>
+                            <th>Blanco</th>
+                            <th>Morado</th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <td scope="row">Probabilidad</td>
+                            <td>1/4 = 25%</td>
+                            <td>3/4 = 75%</td>
+                            <th></th>
+                          </tr>
+                        </tbody>
+                      </table>
                 </div>
             </section>
             <hr class="m-0" />
             <!-- Skills-->
             <section class="resume-section" id="skills">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Skills</h2>
-                    <div class="subheading mb-3">Programming Languages & Tools</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-angular"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-react"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-sass"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-less"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-wordpress"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-gulp"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-grunt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-npm"></i></li>
-                    </ul>
-                    <div class="subheading mb-3">Workflow</div>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Mobile-First, Responsive Design
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Browser Testing & Debugging
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cross Functional Teams
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Agile Development & Scrum
-                        </li>
-                    </ul>
+                    <h2 class="mb-5">Herencia con alelos múltiples</h2>
+                    
                 </div>
             </section>
             <hr class="m-0" />
@@ -193,7 +203,7 @@
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Awards & Certifications</h2>
+                    <h2 class="mb-5">Referencias</h2>
                     <ul class="fa-ul mb-0">
                         <li>
                             <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
