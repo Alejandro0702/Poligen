@@ -123,5 +123,4 @@ function dibujarOjos(i, x, y){
         ctx.drawImage(img_base, x, y, tam, tam);
     }
 }
-
 //canvas
