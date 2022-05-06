@@ -163,6 +163,7 @@
                 <div class="resume-section-content">
                     <h2 class="mb-5">Herencia poligénica</h2>
                     <p>La herencia poligénica se presenta cuando a un fenotipo contribuyen más de dos genes, por ejemplo: el color de los ojos humanos. El iris del ojo puede ser de color casi negro hasta azul claro, lo cual se debe a la cantidad de melanina o pigmento de color amarillo presente en la capa exterior del iris. Si en esta capa existe mucha melanina, el color del iris será café my oscuro, mientras que si prácticamente no hay melanina, el color del ojo será azul claro.</p>
+                    <p>La siguiene tabla muestra la cantidad de alelos dominantes y recesivos que codifican diferentes colores en el iris humano.</p>
                     <table class="table">
                         <thead class="thead-dark">
                           <tr>
@@ -204,7 +205,7 @@
                     <p>Escoge el color de ojos de dos padres para determinar la probabilidad del color de ojos humanos.</p>                    
                     <div id="opciones">
                         <label>Padre: </label>
-                        <select id="padre">
+                        <select id="padre" class="form-select">
                             <option disabled selected>Color de ojos</option>
                             <option>Azul</option>
                             <option>Verde</option>
@@ -213,7 +214,7 @@
                             <option>Café oscuro/Negro</option>
                         </select>
                         <label>Madre: </label>
-                        <select id="madre">
+                        <select id="madre" class="form-select">
                             <option disabled selected>Color de ojos</option>
                             <option>Azul</option>
                             <option>Verde</option>
@@ -222,11 +223,11 @@
                             <option>Café oscuro/Negro</option>
                         </select>
                         <br>
-                        <input id="Aceptar" type="button" onclick="Calcular()" value="Aceptar">
+                        <button id="Aceptar" class="btn btn-success" type="button" onclick="Calcular()">Aceptar</button>
                     </div>
                     <div id="resultados">
                         <div id="resultado"></div>
-                        <canvas id="micanvas" width="600" height="500">El navegador no soporta canvas.</canvas>
+                        <canvas id="micanvas" width="100%" height="500">El navegador no soporta canvas.</canvas>
                     </div>
                 </div>
             </section>

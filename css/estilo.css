@@ -2,14 +2,15 @@
     display: none;
     background-color: aqua;
     position: relative;
-    width: 500;
+    
 }
 #resultados {
     background-color: yellow;
     width: 100%;
     height: 100%;
+    text-align: right;
 }
 #resultado{
-    position: relative;
+    
     float: right;
 }
