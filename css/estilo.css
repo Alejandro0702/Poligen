@@ -1,16 +1,19 @@
-#micanvas {
-    display: none;
-    background-color: aqua;
-    position: relative;
-    
-}
 #resultados {
-    background-color: yellow;
+    background-color: aqua;
     width: 100%;
     height: 100%;
     text-align: right;
+    margin-top: 45px;
+    display: flex;
+}
+#micanvas {
+    display: none;
+    margin: auto;
 }
 #resultado{
-    
+    float: left;
+}
+
+#Aceptar{
     float: right;
 }
