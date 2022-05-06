@@ -2,7 +2,8 @@ let c = [0,0,0,0,0];
 let g = new Array();
 
 function Calcular(){
-    elemento.style.display = 'block';
+    document.getElementById('resultados').style.display = 'block';
+    document.getElementById('resultado').style.display = 'block';
     ctx.putImageData(imageData, 0, 0);
     let colores = ["Azul", "Verde", "Miel", "Cafe", "Negro"];
     let alelos =["aabb","Aabb","AaBb","AABb","AABB"];
@@ -15,10 +16,10 @@ function Calcular(){
     let res = "";
     for (let i = 0; i < 5; i++){
         console.log(colores[i] + ": " + prom(c[i], punnett.length) + "%");
-        res = res + (colores[i] + ": " + prom(c[i], punnett.length) + "%<br>");
+        document.getElementById('c'+i).innerHTML = prom(c[i], punnett.length) + "%";    
+        //res = res + (colores[i] + ": " + prom(c[i], punnett.length) + "%<br>");
     }
     dibujarTexto(punnett);
-    document.getElementById('resultado').innerHTML = res;
     c = [0,0,0,0,0];
 }
 
@@ -80,20 +81,30 @@ function prom(x, y){   return (x*100)/y;  }
 //canvas
 var elemento = document.getElementById("micanvas");
 var ctx = elemento.getContext('2d');
-let tam = 100;
-let dimMatr = tam*4;
+//let tam = 100;//document.getElementById('resultados').clientWidth * 0.098;//tamaño de cada cuadro
+let tam = window.innerWidth * 0.15;
+if(tam >120)tam = 100;
+console.log("tam: " + tam);
+let dimMatr = tam*4; //dimension (cantidad de cuadros)
+
+
+//ctx.canvas.width = document.getElementById('resultados').clientWidth * 0.6; //ancho de canvas
+//ctx.canvas.height = window.innerHeight;                                     //altura de canvas
+//console.log(ctx.canvas.height);
+
+
 for (let x = 50; x < dimMatr; x+=tam) {
     for (let y = 50; y < dimMatr; y+=tam) {
-        ctx.strokeRect(x,y,tam,tam);
+        ctx.strokeRect(x,y,tam,tam);//dibuja el contorno de los cuadros
     }
 }
-let imageData = ctx.getImageData(0,0,elemento.width,elemento.height);//Almacena el canva inicial
+let imageData = ctx.getImageData(0,0,elemento.width,elemento.height);//Almacena el canva inicial (solo las lineas)
 function dibujarTexto(p){
-    ctx.font = '15px Arial';
+    ctx.font = tam*0.15 + 'px Arial';
     let i = 0;
     for (let x = 50; x < dimMatr; x+=tam){
         for (let y = 50; y < dimMatr; y+=tam){
-            ctx.fillText(p[i],x+35,y+93);
+            ctx.fillText(p[i],x+(tam*0.35),y+(tam*0.9));//dibuja el texto
             dibujarOjos(i, x, y);
             i++;
         }
