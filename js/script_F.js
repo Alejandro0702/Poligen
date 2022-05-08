@@ -1,26 +1,53 @@
+
+    let seleccionP = document.getElementById('padre');
+    seleccionP.addEventListener("change",removeMsjP);
+    let seleccionM = document.getElementById('madre');
+    seleccionM.addEventListener("change",removeMsjM);
+
+function removeMsjP(){
+    document.getElementById('padre_error').innerHTML = " ";
+}
+function removeMsjM(){
+    document.getElementById('madre_error').innerHTML = " ";
+}
 let c = [0,0,0,0,0];
 let g = new Array();
 
 function Calcular(){
-    document.getElementById('resultados').style.display = 'block';
-    document.getElementById('resultado').style.display = 'block';
-    ctx.putImageData(imageData, 0, 0);
-    let colores = ["Azul", "Verde", "Miel", "Cafe", "Negro"];
-    let alelos =["aabb","Aabb","AaBb","AABb","AABB"];
     let a = document.getElementById('padre').selectedIndex - 1;
     let b = document.getElementById('madre').selectedIndex - 1;
-    let p = alelos[a].split('');
-    let m = alelos[b].split('');
-    let punnett = matrizPunnett(combinar(p),combinar(m));
-    Genotipos(punnett);
-    let res = "";
-    for (let i = 0; i < 5; i++){
-        console.log(colores[i] + ": " + prom(c[i], punnett.length) + "%");
-        document.getElementById('c'+i).innerHTML = prom(c[i], punnett.length) + "%";    
-        //res = res + (colores[i] + ": " + prom(c[i], punnett.length) + "%<br>");
+    if (a != -1 && b != -1) {
+        document.getElementById('resultados').style.display = 'block';
+        document.getElementById('resultado').style.display = 'block';
+        ctx.putImageData(imageData, 0, 0);
+        let colores = ["Azul", "Verde", "Miel", "Cafe", "Negro"];
+        let alelos =["aabb","Aabb","AaBb","AABb","AABB"];
+        let p = alelos[a].split('');
+        let m = alelos[b].split('');
+        let punnett = matrizPunnett(combinar(p),combinar(m));
+        Genotipos(punnett);
+        let res = "";
+        for (let i = 0; i < 5; i++){
+            console.log(colores[i] + ": " + prom(c[i], punnett.length) + "%");
+            document.getElementById('c'+i).innerHTML = prom(c[i], punnett.length) + "%";    
+            //res = res + (colores[i] + ": " + prom(c[i], punnett.length) + "%<br>");
+        }
+        dibujarTexto(punnett);
+        c = [0,0,0,0,0];    
     }
-    dibujarTexto(punnett);
-    c = [0,0,0,0,0];
+    else{
+        if(a == -1){
+            let error = document.getElementById('padre_error');
+            let msjErr = "Selecciona un color de ojos!";
+            error.innerHTML = msjErr;
+        }
+        if(b == -1){
+            let error = document.getElementById('madre_error');
+            let msjErr = "Selecciona un color de ojos!";
+            error.innerHTML = msjErr;
+        }
+    }
+    
 }
 
 let combinar = function(array){

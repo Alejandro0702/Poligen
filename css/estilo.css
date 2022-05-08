@@ -24,3 +24,13 @@ html, body{
 #Aceptar{
     float: right;
 }
+.mensaje_error {
+	color: rgb(255, 0, 0);
+	display: block;
+	font-weight: bolder;
+	text-align:left;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-style: arial;
+	margin: 6px auto;
+}
