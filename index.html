@@ -138,8 +138,7 @@
                           </tr>
                           <tr>
                             <thead class="thead-dark">
-                                <tr>
-                                    
+                                <tr> 
                                 </tr>
                               </thead>
                             <th scope="row">Fenotipo</th>
@@ -208,7 +207,7 @@
             <section class="resume-section" id="Practica">
                 <div class="resume-section-content">
                     <h2 class="mb-5">!Intentalo tú mismo!</h2>
-                    <p>Escoge el color de ojos los padres para determinar la probabilidad del color de ojos de los hijos.</p>                    
+                    <p>Escoge el color de ojos de los padres para determinar la probabilidad del color de ojos de los hijos.</p>
                     <div id="opciones">
                         <label>Padre: </label>
                         <span id="padre_error" class="mensaje_error"></span>
@@ -220,7 +219,6 @@
                             <option>Café claro</option>
                             <option>Café oscuro/Negro</option>
                         </select>
-                        
                         <label>Madre: </label>
                         <span id="madre_error" class="mensaje_error"></span>
                         <select id="madre" class="form-select">
@@ -235,9 +233,11 @@
                         <button id="Aceptar" class="btn btn-success" type="button" onclick="Calcular()">Aceptar</button>
                     </div>
                     <div id="resultados">
+                        <div class="subheading mb-3">Cuadro de Punnett</div>
                         <canvas id="micanvas" width="500" height="500">El navegador no soporta canvas.</canvas>
                     </div>
                     <div id="resultado">
+                        <div class="subheading mb-3">Tabla de resultados</div>
                         <table class="table">
                             <thead class="thead-dark">
                               <tr>
